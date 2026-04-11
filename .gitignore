@@ -1,0 +1,18 @@
+# TLC model checker artifacts
+states/
+*.bin
+
+# TLC trace exploration files (auto-generated on invariant violations)
+*_TTrace_*.tla
+*_TTrace_*.bin
+
+# TLA+ Toolbox metadata
+.toolbox/
+*.toolbox
+
+# TLC tools jar (users should download their own)
+tla2tools.jar
+
+# OS files
+.DS_Store
+Thumbs.db
