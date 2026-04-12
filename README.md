@@ -1,14 +1,10 @@
 # AegisChain Consent State Machine — TLA+ Formal Verification
 
-This repository contains the TLA+ specification and model checking configuration for the **consent state machine** of the [AegisChain](https://github.com/brunobatista25/aegischain) framework. The specification formally verifies that the consent lifecycle cannot reach an inconsistent state under any interleaving of patient and provider actions.
+This repository contains the TLA+ specification and model checking configuration for the **consent state machine** of the AegisChain framework. The specification formally verifies that the consent lifecycle cannot reach an inconsistent state under any interleaving of patient and provider actions.
 
 ## Paper
 
-This specification accompanies the paper:
-
-> **AegisChain: Patient-Centric Smart Contracts for Secure Medical Image Sharing in Permissioned Blockchains**  
-> Bruno L. A. Batista, João C. Ferreira, Joaquim Celestino Júnior  
-> Submitted to IEEE LCN 2026
+This specification accompanies a paper submitted to IEEE LCN 2026 (under double-blind review).
 
 ## Overview
 
@@ -52,7 +48,7 @@ $ java -jar tla2tools.jar -config ConsentStateMachine.cfg ConsentStateMachine.tl
 
 TLC2 Version 2026.04.09.014118 (rev: 389440f)
 Running breadth-first search Model-Checking with fp 1 and seed 7981246176005043626
-with 1 worker on 16 cores with 8004MB heap and 64MB offheap memory [pid: 733348]
+with 1 worker on 16 cores with 8004MB heap and 64MB offheap memory
 (Linux 6.19.10-zen1-1-zen amd64, Arch Linux 21.0.10 64bit, MSBDiskFPSet, DiskStateQueue).
 
 Starting... (2026-04-11 20:49:26)
@@ -133,36 +129,20 @@ The specification bounds time to `[0, 6]` with an expiry time of `3`, resulting 
 
 ## Correspondence to the Paper
 
-| TLA+ Action | Paper Reference | Consent Contract Function |
-|-------------|-----------------|---------------------------|
-| `PatientApprove` | Algorithm 2 (Approve=true) | `UpdateConsentStatus()` |
-| `PatientDeny` | Algorithm 2 (Approve=false) | `UpdateConsentStatus()` |
-| `PatientRevoke` | Algorithm 2 (Approve=false) | `UpdateConsentStatus()` |
-| `ProviderCheckAccess` | Algorithm 3 | `CheckAccess()` |
-| `ProviderRequestAccess` | Table III, row 1 | `RequestAccess()` |
+| TLA+ Action | Consent Contract Function |
+|-------------|---------------------------|
+| `PatientApprove` | `UpdateConsentStatus()` (Approve=true) |
+| `PatientDeny` | `UpdateConsentStatus()` (Approve=false) |
+| `PatientRevoke` | `UpdateConsentStatus()` (Approve=false) |
+| `ProviderCheckAccess` | `CheckAccess()` |
+| `ProviderRequestAccess` | `RequestAccess()` |
 
-| TLA+ Invariant | Paper Requirement | Paper Section |
-|----------------|-------------------|---------------|
-| `TypeInvariant` | — | Section V.C.1 |
-| `SubjectControl` | SR3 (Subject Control) | Table II, Section V.C.1 |
-| `NonBypassableExpiry` | SR4 (Non-Bypassable Expiration) | Table II, Section V.C.1 |
+| TLA+ Invariant | Requirement |
+|----------------|-------------|
+| `TypeInvariant` | — |
+| `SubjectControl` | SR3 (Subject Control) |
+| `NonBypassableExpiry` | SR4 (Non-Bypassable Expiration) |
 
 ## License
 
 This specification is released under the [MIT License](LICENSE).
-
-## Citation
-
-If you use this specification in your research, please cite:
-
-```bibtex
-@inproceedings{batista2026aegischain,
-  title={AegisChain: Patient-Centric Smart Contracts for Secure Medical
-         Image Sharing in Permissioned Blockchains},
-  author={Batista, Bruno L. A. and Ferreira, Jo{\~a}o C. and
-          J{\'u}nior, Joaquim Celestino},
-  booktitle={2026 IEEE Conference on Local Computer Networks (LCN)},
-  year={2026},
-  organization={IEEE}
-}
-```
