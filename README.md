@@ -4,7 +4,7 @@ This repository contains the TLA+ specification and model checking configuration
 
 ## Paper
 
-This specification accompanies a paper submitted to IEEE LCN 2026 (under double-blind review).
+This specification accompanies a paper submitted to IEEE Access 2026 (under double-blind review).
 
 ## Overview
 
