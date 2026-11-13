@@ -19,9 +19,9 @@
 (* that scaling to M providers introduces no new state transitions - only       *)
 (* replicated, non-interfering instances of the same verified machine.          *)
 (*                                                                              *)
-(* Paper: Accompanies "AegisChain: A Formally Verified Architecture for         *)
-(* Patient-Centric Consent Enforcement in DICOM Image Sharing", submitted       *)
-(* to IEEE Access.                                                              *)
+(* Paper: Accompanies "AAegisChain: Blockchain-Based Consent Enforcement for    *)
+(* DICOM Image Sharing with a Formally Verified Consent State Machine",         *)
+(* submitted to IEEE Access.                                                    *)
 (********************************************************************************)
 
 EXTENDS Naturals, FiniteSets
